@@ -170,3 +170,9 @@ STATICFILES_STORAGE = "django.contrib.staticfiles.storage.StaticFilesStorage"
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+
+# Stripe settings
+STRIPE_PUBLIC_KEY = env("CW_STRIPE_PUBLIC_KEY")
+STRIPE_SECRET_KEY = env("CW_STRIPE_SECRET_KEY")
+STRIPE_WEBHOOK_SECRET = env("CW_STRIPE_WEBHOOK_SECRET")
