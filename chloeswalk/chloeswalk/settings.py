@@ -46,13 +46,19 @@ INSTALLED_APPS = [
     # Third-party
     "allauth",
     "allauth.account",
+    'allauth.socialaccount',
+    'allauth.socialaccount.providers.facebook',
     "crispy_forms",
     "crispy_tailwind",
+    "django_extensions",
 
     # Local
     "accounts.apps.AccountsConfig",
     "pages.apps.PagesConfig",
 ]
+CRISPY_TEMPLATE_PACK = 'tailwind'
+CRISPY_ALLOWED_TEMPLATE_PACKS = "tailwind" 
+
 
 AUTH_USER_MODEL = "accounts.CustomUser"
 SITE_ID=1
@@ -63,6 +69,7 @@ AUTHENTICATION_BACKENDS = [
 
 EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
 LOGIN_REDIRECT_URL = "home"
+LOGOUT_REDIRECT_URL = "home"
 
 
 # Allauth settings
@@ -71,6 +78,13 @@ ACCOUNT_USERNAME_REQUIRED = False  # new
 ACCOUNT_AUTHENTICATION_METHOD = "email"  # new
 ACCOUNT_EMAIL_REQUIRED = True  # new
 ACCOUNT_UNIQUE_EMAIL = True 
+
+SOCIALACCOUNT_PROVIDERS = {
+        'facebook':{
+        'SCOPE': ['email', 'publish_stream'],
+        'METHOD': 'js_sdk',
+    }
+}
 
 
 MIDDLEWARE = [
@@ -147,6 +161,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 STATIC_URL = "static/"
+STATICFILES_DIRS = [BASE_DIR / "static"]
+STATIC_ROOT = BASE_DIR / "staticfiles"
+STATICFILES_STORAGE = "django.contrib.staticfiles.storage.StaticFilesStorage"
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field

@@ -1,0 +1,23 @@
+{% extends "home.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% load socialaccount %}
+
+
+
+{% block title %}Sign Up{% endblock title %}
+
+{% block detail %}
+<h1 class="mt-24 text-3xl font-bold tracking-normal leading-8 text-gray-900 sm:mt-10 sm:text-6xl">Register to join us.</h1>
+<p class="mt-6 text-lg leading-8 text-gray-600">Sign up and we'll send you details as we get organised.</p>
+<form method="post">
+  {% csrf_token %}
+  {{ form|crispy }}
+  <div class="mt-10 flex items-center gap-x-6">
+    <a href="{% url "account_signup" %}" class="rounded-md bg-red-700 px-3.5 py-2.5 text-lg font-semibold text-white shadow-sm hover:bg-red-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-600">Register</a>
+  </div>
+</form>
+{% providers_media_js %}
+<a href="{% provider_login_url "facebook" method="js_sdk" %}">Facebook Connect</a>
+
+{% endblock detail %}
