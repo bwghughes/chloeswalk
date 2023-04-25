@@ -4,12 +4,12 @@
 <h1 class="mt-24 text-3xl font-bold tracking-normal leading-8 text-gray-900 sm:mt-10 sm:text-6xl">Give presents to kids this Christmas</h1>
     <p class="mt-6 text-lg leading-8 text-gray-600">Chloe is organizing a charity walk in autumn to raise money for Secret Santa in Derby. The money will buy gifts for children who wouldn't get them otherwise.</p>
     <div class="mt-10 flex items-center gap-x-6">
-    {% if user.is_authenticated %}
-    <a href="{% url "landing" %}" class="rounded-md bg-green-700 px-3.5 py-2.5 text-lg font-semibold text-white shadow-sm hover:bg-green-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-600">Donate Now</a>
-    {% else %}
-    <a href="{% url "account_signup" %}" class="rounded-md bg-red-700 px-3.5 py-2.5 text-lg font-semibold text-white shadow-sm hover:bg-red-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-600">Register to Join Us</a>
-    {% endif %}
-    
-    <a href="#" class="text-lg font-semibold leading-6 text-gray-900 hover:text-red-500">Learn more <span aria-hidden="true">→</span></a>
+        {% if user.is_authenticated %}
+        <a href="{% url "landing" %}" class="rounded-md bg-green-700 px-3.5 py-2.5 text-lg font-semibold text-white shadow-sm hover:bg-green-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-600">Donate Now</a>
+        {% else %}
+        <a href="{% url "account_signup" %}" class="rounded-md bg-red-700 px-3.5 py-2.5 text-lg font-semibold text-white shadow-sm hover:bg-red-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-600">Register to Join Us</a>
+        {% endif %}
+        
+        <a href="#" class="text-lg font-semibold leading-6 text-gray-900 hover:text-red-500">Learn more <span aria-hidden="true">→</span></a>
 </div>
 {% endblock %}
